@@ -20,8 +20,8 @@ def word_substituter (tweet)
   shortened_tweet = ''
 
   tweet_array.each { |word|
-    if word_intersection.include?(word)
-      shortened_tweet << "#{dictionary[word]} "
+    if word_intersection.include?(word.downcase)
+      shortened_tweet << "#{dictionary[word.downcase]} "
     else
       shortened_tweet << "#{word} "
     end
@@ -29,4 +29,11 @@ def word_substituter (tweet)
 
 
   shortened_tweet[0..-2]
+end
+
+def bulk_tweet_shortener (tweet_array)
+
+  tweet_array.each { |tweet|
+    puts word_substituter(tweet)
+  }
 end
